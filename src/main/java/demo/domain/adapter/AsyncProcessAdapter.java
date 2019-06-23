@@ -1,4 +1,4 @@
-package demo.domain.service;
+package demo.domain.adapter;
 
 import java.util.concurrent.CompletableFuture;
 import org.slf4j.Logger;
@@ -6,12 +6,12 @@ import org.slf4j.LoggerFactory;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 @Slf4j
-@Service
-public class AsyncService {
-    protected final static Logger log = LoggerFactory.getLogger(AsyncService.class);
+@Component
+public class AsyncProcessAdapter {
+    protected final static Logger log = LoggerFactory.getLogger(AsyncProcessAdapter.class);
 
     @Async("Thread2")
     public CompletableFuture<String> findName(String name, Long sleepTime) throws InterruptedException {
